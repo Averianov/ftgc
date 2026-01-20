@@ -1,4 +1,4 @@
-package converter
+package ftgs
 
 import (
 	"fmt"
@@ -21,13 +21,6 @@ func check(err error) {
 
 func init() {
 	sl.CreateLogs("converter", "./log", 4, 0)
-}
-
-func main() {
-	workPath = "./"
-	sl.L.Info("## ConvertWWW - start path: %v\n", workPath+"go")
-
-	ConvertDirectory(workPath+"img", workPath+"img/out", "svg")
 }
 
 func ConvertDirectory(inPath, outPath, typecheck string) (err error) {
