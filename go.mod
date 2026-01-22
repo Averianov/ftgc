@@ -1,4 +1,4 @@
-module filetogoconverter
+module github.com/Averianov/ftgc
 
 go 1.25.6
 
