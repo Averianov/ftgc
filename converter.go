@@ -71,7 +71,10 @@ import (
 	ftgc "github.com/Averianov/ftgc"
 )
 
-ftgc.ToGo[` + strings.ToUpper(strings.Replace(strings.Replace(fileName, ".", "", -1), "-", "", -1)) + `] = []byte{` + convertBytes(data) + `}`)
+func init() {
+	ftgc.ToGo["` + strings.ToUpper(strings.Replace(strings.Replace(fileName, ".", "", -1), "-", "", -1)) + `"] = []byte{` + convertBytes(data) + `}
+}
+`)
 
 	return
 }
