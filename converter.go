@@ -11,7 +11,7 @@ import (
 	sl "github.com/Averianov/cisystemlog"
 )
 
-var workPath string
+var ToGo map[string][]byte
 
 func check(err error) {
 	if err != nil {
@@ -67,7 +67,11 @@ func saveByteInGo(outPath, fileName string, data []byte) (err error) {
 
 	_, err = f.WriteString(`package memfd
 
-var ` + strings.ToUpper(strings.Replace(strings.Replace(fileName, ".", "", -1), "-", "", -1)) + ` = []byte{` + convertBytes(data) + `}`)
+import (
+	ftgc "github.com/Averianov/ftgc"
+)
+
+ftgc.ToGo[` + strings.ToUpper(strings.Replace(strings.Replace(fileName, ".", "", -1), "-", "", -1)) + `] = []byte{` + convertBytes(data) + `}`)
 
 	return
 }
