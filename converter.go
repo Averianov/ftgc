@@ -11,7 +11,7 @@ import (
 	sl "github.com/Averianov/cisystemlog"
 )
 
-var ToGo map[string][]byte
+var ToGo map[string][]byte = map[string][]byte{}
 
 func check(err error) {
 	if err != nil {
