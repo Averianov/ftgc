@@ -11,7 +11,7 @@ import (
 	sl "github.com/Averianov/cisystemlog"
 )
 
-var ToGo map[string][]byte = map[string][]byte{}
+var ToGo map[string][]byte
 
 func check(err error) {
 	if err != nil {
@@ -21,6 +21,7 @@ func check(err error) {
 
 func init() {
 	sl.CreateLogs("converter", "./log", 4, 0)
+	ToGo = map[string][]byte{}
 }
 
 func ConvertDirectory(inPath, outPath, typecheck string) (err error) {
