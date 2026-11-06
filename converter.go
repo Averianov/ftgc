@@ -30,7 +30,7 @@ func ConvertDirectory(inPath, outPath, typecheck string) (err error) {
 
 	var files []fs.DirEntry
 	if files, err = os.ReadDir(inPath); err == nil {
-		sl.L.Debug("## readDirectory: %s\n", inPath)
+		sl.L.Debug("## readDirectory: %s", inPath)
 		for _, f := range files {
 			if strings.Contains(f.Name(), typecheck) {
 				fileName := f.Name()
@@ -44,7 +44,7 @@ func ConvertDirectory(inPath, outPath, typecheck string) (err error) {
 func ConvertFile(inPath, outPath, filename string) (err error) {
 	var data []byte
 	var contentType string
-	sl.L.Debug("## ReadFileToByte - fileName: %s\n", inPath+filename)
+	sl.L.Debug("## ReadFileToByte - fileName: %s", inPath+filename)
 	data, contentType, err = readFileToBytes(inPath, filename)
 	sl.L.Debug("contentType: %s", contentType)
 	check(err)
@@ -59,7 +59,7 @@ func saveByteInGo(outPath, fileName string, data []byte) (err error) {
 	var f *os.File
 	path := outPath + strings.ToLower(fileName) + ".go"
 
-	sl.L.Info("## SaveInGo - path: %v\n", path)
+	sl.L.Info("## SaveInGo - path: %v", path)
 	//sl.L.Info("## SaveInGo - data: %v\n", data)
 
 	f, err = os.Create(path)
