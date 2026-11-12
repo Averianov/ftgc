@@ -20,8 +20,9 @@ func check(err error) {
 }
 
 func init() {
-	sl.CreateLogs("converter", "./log", 4, 0)
 	ToGo = map[string][]byte{}
+
+	sl.L.SetFileLevel(sl.INFO)
 }
 
 func ConvertDirectory(inPath, outPath, typecheck string) (err error) {
